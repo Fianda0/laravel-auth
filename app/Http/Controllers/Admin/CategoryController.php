@@ -43,7 +43,11 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        $data = [
+            "categoria" => $category
+        ];
+
+        return view("admin.categories.show", $data);
     }
 
     /**

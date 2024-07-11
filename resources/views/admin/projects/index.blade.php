@@ -17,6 +17,7 @@
 
                                 <h5 class="card-title">{{ $progetto->titolo }}</h5>
                                 <p class="descrizone card-text overflow-auto">{{ $progetto->descrizione }}</p>
+                                <p>{{ $progetto->category_id }}</p>
                             </div>
 
                             <div class="my-3 d-flex flex-column">

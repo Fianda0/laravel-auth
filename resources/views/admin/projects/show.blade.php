@@ -12,6 +12,10 @@
             </div>
             <div class="col-8">
                 <p>Descrizione: {{ $project->descrizione }}</p>
+                <p class="card-text my-4">
+                    Categoria: <a
+                        href="{{ route('admin.categories.show', $progetto->category) }}">{{ $progetto->category->nome }}</a>
+                </p>
             </div>
         </div>
     </div>

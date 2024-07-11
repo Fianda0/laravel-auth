@@ -18,6 +18,8 @@ return new class extends Migration
             $table->text('descrizione');
             $table->string('immagine');
 
+            $table->foreignId('category_id')->constrained();
+
             $table->timestamps();
         });
     }
