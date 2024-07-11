@@ -14,19 +14,19 @@ class CategorySeeder extends Seeder
     public function run(): void
     {
         $caJS = new Category();
-        $caJS->name = 'Javascript';
+        $caJS->nome = 'Javascript';
         $caJS->save();
 
         $catVue = new Category();
-        $catVue->name = 'Vue';
+        $catVue->nome = 'Vue';
         $catVue->save();
 
         $catPHP = new Category();
-        $catPHP->name = 'Php';
+        $catPHP->nome = 'Php';
         $catPHP->save();
 
         $catLaravel = new Category();
-        $catLaravel->name = 'Laravel';
+        $catLaravel->nome = 'Laravel';
         $catLaravel->save();
     }
 }
