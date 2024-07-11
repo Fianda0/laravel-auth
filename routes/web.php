@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController; //<---- Import del controller precedentemente creato!
-use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
