@@ -14,4 +14,9 @@ class Project extends Model
         'descrizione',
         'immagine'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }
