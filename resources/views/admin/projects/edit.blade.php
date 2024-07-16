@@ -28,6 +28,11 @@
                         <label class="form-label">Percorso immagione</label>
                         <input type="text" class="form-control" name="immagine" value="{{$progetto->immagine}}" required>
                     </div>
+                    <div class="mb-3">
+                        <label class="form-label">Linguaggio</label>
+                        <input type="text" class="form-control" name="category_id" value="{{$progetto->category->nome}}" required>
+                        
+                    </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
 
