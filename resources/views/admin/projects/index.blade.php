@@ -7,7 +7,6 @@
                 @foreach ($progetti as $progetto)
                     <div class="card my-4 mx-2" style="width: 18rem;">
                         <div class="card-body d-flex flex-column justify-content-between">
-
                             <div>
                                 <p class="card-text">
                                     <a href="{{ route('admin.projects.show', $progetto->id) }}">
@@ -18,6 +17,12 @@
                                 <h5 class="card-title">{{ $progetto->titolo }}</h5>
                                 <p class="descrizone card-text overflow-auto">{{ $progetto->descrizione }}</p>
                                 <p>{{ $progetto->category->nome }}</p>
+                                <div>
+                                    <p>Linguaggi del progetto:</p>
+                                    @foreach ($progetto->lenguages as $linguaggio)
+                                        <p>{{ $linguaggio->nome }}</p>
+                                    @endforeach
+                                </div>
                             </div>
 
                             <div class="my-3 d-flex flex-column">
