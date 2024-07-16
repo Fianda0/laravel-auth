@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request as HttpRequest;
 
@@ -64,7 +65,11 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
+        $categorie = Category::all();
+
         $data = [
+            "categorie" => $categorie,
+
             "progetto" => $project
         ];
 
@@ -82,6 +87,7 @@ class ProjectController extends Controller
         $project->titolo = $data['titolo'];
         $project->descrizione = $data['descrizione'];
         $project->immagine = $data['immagine'];
+        $project->category_id = $data['category_id'];
         $project->save();
 
         return redirect()->route('admin.projects.index', $project->id);

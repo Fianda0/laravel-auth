@@ -30,8 +30,11 @@
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Linguaggio</label>
-                        <input type="text" class="form-control" name="category_id" value="{{$progetto->category->nome}}" required>
-                        
+                        <select name="category_id" id="">
+                            @foreach ($categorie as $categoria)
+                                <option value="{{$categoria->id}}">{{$categoria->nome}}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
