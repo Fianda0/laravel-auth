@@ -22,6 +22,8 @@ class ProjectSeeder extends Seeder
             $newProject->immagine = "https://picsum.photos/id/" . rand(1, 500) . "/400/400";
             $newProject->category_id = rand(1, 4);
             $newProject->save();
+
+            $newProject->lenguages()->attach([1, 2]);
         }
     }
 }
