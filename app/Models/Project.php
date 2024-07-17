@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
+
 
 class Project extends Model
 {
@@ -12,7 +14,8 @@ class Project extends Model
     protected $fillable = [
         'titolo',
         'descrizione',
-        'immagine'
+        'immagine',
+        'category_id'
     ];
 
     public function category()

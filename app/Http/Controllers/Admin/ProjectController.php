@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request as HttpRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {

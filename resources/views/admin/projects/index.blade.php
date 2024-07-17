@@ -9,12 +9,17 @@
                         <div class="card-body d-flex flex-column justify-content-between">
                             <div>
                                 <p class="card-text">
-                                    <a href="{{ route('admin.projects.show', $progetto->id) }}">
+                                <h5 class="fw-bold card-title">{{ $progetto->titolo }}</h5>
+                                <a href="{{ route('admin.projects.show', $progetto->id) }}">
+
+                                    @if (Str::startsWith($progetto->immagine, 'http'))
                                         <img src="{{ $progetto->immagine }}" alt="">
-                                    </a>
+                                    @else
+                                        <img src="{{ asset('storage/' . $progetto->immagine) }}" alt="">
+                                    @endif
+                                </a>
                                 </p>
 
-                                <h5 class="card-title">{{ $progetto->titolo }}</h5>
                                 <p class="descrizone card-text overflow-auto">{{ $progetto->descrizione }}</p>
                                 <p>{{ $progetto->category->nome }}</p>
                                 <div>
