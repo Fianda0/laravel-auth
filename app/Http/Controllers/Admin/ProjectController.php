@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request as HttpRequest;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -36,16 +37,35 @@ class ProjectController extends Controller
      */
     public function store(HttpRequest $request)
     {
+        // dd($request->all());
 
-        $data = $request->all();
+        // $data = $request->all();
 
-        $newProject = new Project();
-        $newProject->titolo = $data['titolo'];
-        $newProject->descrizione = $data['descrizione'];
-        $newProject->immagine = $data['immagine'];
-        $newProject->save();
+        // $newProject = new Project();
+        // $newProject->titolo = $data['titolo'];
+        // $newProject->descrizione = $data['descrizione'];
+        // $newProject->immagine = $data['immagine'];
+        // $newProject->category_id = rand(1, 4);
+        // $newProject->save();
 
-        return redirect()->route('admin.projects.show', $newProject->id);
+        $val = $request->validate([
+            'titolo' => 'required',
+            'descrizione' => 'nullable',
+            'immagine' => 'nullable|image',
+            'category_id' => 'required'
+        ]);
+
+        if ($request->has('immagine')) {
+
+            $img = Storage::put('uploads', $request->immagine);
+            $val['immagine'] = $img;
+            // dd($img, $val);
+        }
+
+        // dd($val);
+        Project::create($val);
+        return redirect()->route('admin.projects.index');
+        // return redirect()->route('admin.projects.show', $newProject->id);
     }
 
     /**

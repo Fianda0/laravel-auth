@@ -14,7 +14,7 @@
                 <p>Descrizione: {{ $project->descrizione }}</p>
                 <p class="card-text my-4">
                     Categoria: <a
-                        href="{{ route('admin.categories.show', $progetto->category) }}">{{ $progetto->category->nome }}</a>
+                        href="{{ route('admin.categories.show', $project->category) }}">{{ $project->category->nome }}</a>
                 </p>
             </div>
         </div>
