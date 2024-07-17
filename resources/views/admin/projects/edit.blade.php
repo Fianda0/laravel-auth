@@ -18,23 +18,20 @@
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Titolo</label>
-                        <input type="text" class="form-control" name="titolo" value="{{$progetto->titolo}}" required>
+                        <input type="text" class="form-control" name="titolo" value="{{ $progetto->titolo }}" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Descrizione</label>
-                        <input type="text" class="form-control" name="descrizione" value="{{ $progetto->descrizione }}" required></input>
+                        <textarea type="text" class="form-control" name="descrizione" required>{{ $progetto->descrizione }}</textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Categoria</label>
+                        <input type="number" class="form-control" name="category_id" value="{{ $progetto->category_id }}"
+                            required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Percorso immagione</label>
-                        <input type="text" class="form-control" name="immagine" value="{{$progetto->immagine}}" required>
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Linguaggio</label>
-                        <select name="category_id" id="">
-                            @foreach ($categorie as $categoria)
-                                <option value="{{$categoria->id}}">{{$categoria->nome}}</option>
-                            @endforeach
-                        </select>
+                        <input type="file" name="immagine" value="{{ $progetto->immagine }}" id="">
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>

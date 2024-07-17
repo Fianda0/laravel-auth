@@ -102,16 +102,39 @@ class ProjectController extends Controller
      */
     public function update(HttpRequest $request, Project $project)
     {
-        $data = $request->all();
+        // $data = $request->all();
 
 
-        $project->titolo = $data['titolo'];
-        $project->descrizione = $data['descrizione'];
-        $project->immagine = $data['immagine'];
-        $project->category_id = $data['category_id'];
-        $project->save();
+        // $project->titolo = $data['titolo'];
+        // $project->descrizione = $data['descrizione'];
+        // $project->immagine = $data['immagine'];
+        // $project->category_id = $data['category_id'];
+        // $project->save();
 
-        return redirect()->route('admin.projects.index', $project->id);
+        // return redirect()->route('admin.projects.index', $project->id);
+
+        $val = $request->validate([
+            'titolo' => 'required',
+            'descrizione' => 'nullable',
+            'immagine' => 'nullable|image',
+            'category_id' => 'required'
+        ]);
+
+        if ($request->has('immagine')) {
+
+            $img = Storage::put('uploads', $request->immagine);
+            $val['immagine'] = $img;
+
+            if ($project->immagine && !Str::start($project->immagine, 'http')) {
+                Storage::delete($project->immagine);
+            }
+            // dd($img, $val);
+        }
+
+        $project->update($val);
+
+        // dd($val);        
+        return redirect()->route('admin.projects.index', $project);
     }
 
     /**
