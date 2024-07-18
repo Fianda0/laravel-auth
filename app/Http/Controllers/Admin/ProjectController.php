@@ -142,6 +142,13 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+
+        if ($project->immagine && !Str::startsWith($project->immagine, 'http')) {
+            // not null and not startingn with http
+            Storage::delete($project->immagine);
+        }
+
+
         $project->delete();
 
         return redirect()->route('admin.projects.index');
