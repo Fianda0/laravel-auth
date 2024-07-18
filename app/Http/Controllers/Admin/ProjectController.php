@@ -125,7 +125,7 @@ class ProjectController extends Controller
             $img = Storage::put('uploads', $request->immagine);
             $val['immagine'] = $img;
 
-            if ($project->immagine && !Str::start($project->immagine, 'http')) {
+            if ($project->immagine && !Str::startsWith($project->immagine, 'http')) {
                 Storage::delete($project->immagine);
             }
             // dd($img, $val);
